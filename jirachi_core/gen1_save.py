@@ -6,7 +6,7 @@ class Gen1Save(PokemonSave):
         return
 
     def get_casino_coins(self):
-        return Utils.bcd_to_decimal(self.bytes[0x2850:0x2852])
+        return Utils.read_bytes_to_decimal(self.bytes[0x2850:0x2852], bcd=True)
 
     def get_party_pokemon(self):
         return
@@ -15,4 +15,7 @@ class Gen1Save(PokemonSave):
         return
 
     def get_pokedollars(self):
-        return
+        return Utils.read_bytes_to_decimal(self.bytes[0x25F3:0x25F6], bcd=True)
+    
+    def get_trainer_id(self):
+        return Utils.read_bytes_to_decimal(self.bytes[0x2605:0x2607])
