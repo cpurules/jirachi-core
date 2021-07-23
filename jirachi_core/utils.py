@@ -1,7 +1,7 @@
 class Utils:
     @staticmethod
     def read_bytes(path):
-        bytes = None
+        file_bytes = None
         with open(path) as f:
-            bytes = f.read()
-        return bytes
+            file_bytes = f.read()
+        return file_bytes
