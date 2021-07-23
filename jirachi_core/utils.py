@@ -7,10 +7,16 @@ class Utils:
         return file_bytes
     
     @staticmethod
-    def bcd_to_decimal(bcd_bytes):
+    def read_bytes_to_decimal(bts, bcd=False):
         dec = 0
-        power = len(bcd_bytes) - 1
-        for b in bcd_bytes:
-            dec = dec + (int(hex(b)[2:]) * pow(10, power * 2))
+        power = len(bts) - 1
+
+        for b in bts:
+            if bcd:
+                dec = dec + int(hex(b)[2:]) * pow(10, power * 2)
+            else:
+                dec = dec + b * pow(256, power)
+            
             power = power - 1
+        
         return dec
