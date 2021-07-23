@@ -1,6 +1,13 @@
+import pytest
+import os
+
 from jirachi_core.gen1_save import Gen1Save
 from jirachi_core.utils import Utils
 
+@pytest.fixture
+def blue_save_1():
+    return Gen1Save(Utils.read_bytes('tests/saves/blue_1.dat'))
+
 class TestGen1Save:
-    def __init__(self):
-        self.blue_save_1 = Gen1Save(Utils.read_bytes('saves/blue_1.dat'))
+    def test_get_casino_coins(self, blue_save_1):
+        assert blue_save_1.get_casino_coins() == 3455
