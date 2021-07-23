@@ -1,4 +1,4 @@
-from pokemon_save import PokemonSave
+from jirachi_core.pokemon_save import PokemonSave
 
 class Gen1Save(PokemonSave):
     def get_box_pokemon(self, box_no):
