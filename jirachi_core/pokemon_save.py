@@ -24,3 +24,7 @@ class PokemonSave(ABC):
     @abstractmethod
     def get_pokedollars(self):
         pass
+
+    @abstractmethod
+    def get_trainer_id(self):
+        pass
