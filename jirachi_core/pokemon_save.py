@@ -14,7 +14,15 @@ class PokemonSave(ABC):
         pass
 
     @abstractmethod
+    def get_inventory_items(self):
+        pass
+
+    @abstractmethod
     def get_party_pokemon(self):
+        pass
+
+    @abstractmethod
+    def get_play_time(self):
         pass
 
     @abstractmethod
