@@ -15,7 +15,7 @@ class Gen1Save(PokemonSave):
         return
     
     def get_play_time(self):
-        return (self.bytes[0x2CED], self.bytes[0x2CEF], self.bytes[0x2CF0], self.bytes[0x2CF1])
+        return (self.bytes[0x2CED], self.bytes[0x2CEF], self.bytes[0x2CF0])
 
     def get_player_name(self):
         return
