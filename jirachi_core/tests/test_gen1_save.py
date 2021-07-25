@@ -15,6 +15,9 @@ class TestGen1Save:
     def test_get_play_time(self, blue_save_1):
         assert blue_save_1.get_play_time() == (31, 35, 5)
 
+    def test_get_player_name(self, blue_save_1):
+        assert blue_save_1.get_player_name() == ['R', 'e', 'g', 'n', 'u', 'm']
+
     def test_get_pokedollars(self, blue_save_1):
         assert blue_save_1.get_pokedollars() == 20379
     
