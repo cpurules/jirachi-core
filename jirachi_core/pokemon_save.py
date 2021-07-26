@@ -28,6 +28,10 @@ class PokemonSave(ABC):
     @abstractmethod
     def get_player_name(self):
         pass
+    
+    @abstractmethod
+    def get_pokedex(self):
+        pass
 
     @abstractmethod
     def get_pokedollars(self):
