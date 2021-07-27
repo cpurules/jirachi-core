@@ -1,4 +1,5 @@
 from jirachi_core.gen1_text import Gen1Text
+from jirachi_core.item import Item
 from jirachi_core.pokedex_entry import PokedexEntry
 from jirachi_core.pokemon_save import PokemonSave
 from jirachi_core.utils import Utils
@@ -13,7 +14,17 @@ class Gen1Save(PokemonSave):
         return Utils.read_bytes_to_decimal(self.bytes[0x2850:0x2852], bcd=True)
 
     def get_inventory_items(self):
-        return
+        item_count = self.bytes[0x25C9]
+        items = []
+
+        for i in range(0, item_count):
+            byte_index = 0x25C9 + (2*i) + 1
+            item_id, item_amount = self.bytes[byte_index:byte_index+2]
+            if item_id == 0xFF:
+                break
+            items.append(Item(item_id, item_amount))
+        
+        return items
 
     def get_party_pokemon(self):
         return
